@@ -1,0 +1,29 @@
+# Env variables
+.env
+.env.*
+
+# Yarn
+yarn.lock
+
+# Node artifact files
+node_modules/
+dist/
+
+# Build directory
+build/
+
+# Log files
+*.log
+
+# Package files
+*.jar
+
+# Maven
+target/
+dist/
+
+# JetBrains IDE
+.idea/
+
+# VSCode IDE
+.vscode/*
