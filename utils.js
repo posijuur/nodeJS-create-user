@@ -1,38 +1,37 @@
-const fs = require("fs");
+const fs = require('fs');
 
-function writeDataToFile(filename, content) {
- fs.writeFileSync(filename, JSON.stringify(content), "utf8", (err) => {
-  if (err) {
-   console.log(err);
-  }
- });
-}
+const writeDataToFile = (filename, content) => {
+  fs.writeFileSync(filename, JSON.stringify(content), 'utf8', (err) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+};
 
-function getPostData(req) {
- return new Promise((resolve, reject) => {
-  try {
-   let body = "";
+const getPostData = (req) =>
+  new Promise((resolve, reject) => {
+    try {
+      let body = '';
 
-   req.on("data", (chunk) => {
-    body += chunk.toString();
-   });
+      req.on('data', (chunk) => {
+        body += chunk.toString();
+      });
 
-   req.on("end", () => {
-    resolve(body);
-   });
-  } catch (error) {
-   reject(err);
-  }
- });
-}
+      req.on('end', () => {
+        resolve(body);
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
 
-function errorHandler(res, status, message) {
- res.writeHead(status, { "Content-Type": "application/json" });
- return res.end(JSON.stringify({ message }));
-}
+const errorHandler = (res, status, message) => {
+  res.writeHead(status, { 'Content-Type': 'application/json' });
+  return res.end(JSON.stringify({ message }));
+};
 
 module.exports = {
- writeDataToFile,
- getPostData,
- errorHandler,
+  writeDataToFile,
+  getPostData,
+  errorHandler,
 };
