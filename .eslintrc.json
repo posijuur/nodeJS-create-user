@@ -11,6 +11,10 @@
   "rules": {
     "prettier/prettier": "off",
     "implicit-arrow-linebreak": "off",
+    "linebreak-style": "off",
+    "class-methods-use-this": "off",
+    "guard-for-in": "off",
+    "no-restricted-syntax": "off",
     "object-curly-newline": "off"
   }
 }

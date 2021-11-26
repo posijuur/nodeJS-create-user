@@ -1,5 +1,5 @@
-const User = require('../../models/userModel');
-const { registerSchema } = require('./userController.helper');
+const UserController = require('../../controller/user.controller');
+const { registerSchema } = require('../../validation/users');
 const { getPostData, errorHandler } = require('../../utils');
 
 // @desc    Create a user
@@ -26,8 +26,8 @@ const registerUser = async (req, res) => {
     } catch (err) {
       return errorHandler(res, 400, 'Bad Request');
     }
-
-    const newUser = await User.create(user);
+    
+    const newUser = await UserController.create(user);
 
     res.writeHead(201, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify(newUser));
