@@ -1,8 +1,10 @@
+require('module-alias/register');
 const http = require('http');
 // const path = require('path');
 // const fs = require('fs');
 // const Koa = require('koa');
-const { registerUser } = require('./routes/users/register');
+const { registerUser } = require('@routes/users/register');
+const { userRoutes } = require('@routes/routes');
 
 // @future miiddlewares
 
@@ -15,7 +17,7 @@ const { registerUser } = require('./routes/users/register');
 // });
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/api/users' && req.method === 'POST') {
+  if (req.url === userRoutes.postUser && req.method === 'POST') {
     registerUser(req, res);
   }
 });

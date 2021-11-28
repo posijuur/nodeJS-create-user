@@ -1,6 +1,6 @@
-const UserController = require('../../controller/user.controller');
-const { registerSchema } = require('../../validation/users');
-const { getPostData, errorHandler } = require('../../utils');
+const { getPostData, errorHandler } = require('@root/utils');
+const UserController = require('@controller/user.controller');
+const { registerSchema } = require('@validation/users');
 
 // @desc    Create a user
 // @route   POST /api/users
