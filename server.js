@@ -1,10 +1,9 @@
 require('module-alias/register');
 const http = require('http');
+const { router } = require('@routes/router');
 // const path = require('path');
 // const fs = require('fs');
 // const Koa = require('koa');
-const { registerUser } = require('@routes/users/register');
-const { userRoutes } = require('@routes/routes');
 
 // @future miiddlewares
 
@@ -17,9 +16,7 @@ const { userRoutes } = require('@routes/routes');
 // });
 
 const server = http.createServer((req, res) => {
-  if (req.url === userRoutes.postUser && req.method === 'POST') {
-    registerUser(req, res);
-  }
+  router(req, res);
 });
 
 const PORT = 3000;
